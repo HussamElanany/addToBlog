@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/path/to/your/favicon.ico" type="image/x-icon">
+    <title>Create New Article</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .article-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article-container">
+        <h2>Create New Article</h2>
+
+        <form name="submit-article" id="articleForm">
+            <div class="form-group">
+                <label for="articleTitle">Article Title:</label>
+                <input type="text" id="articleTitle" name="articleTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="articleContent">Article Content:</label>
+                <textarea id="articleContent" name="articleContent" rows="6" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="pdfLink">PDF Link:</label>
+                <input type="text" id="pdfLink" name="pdfLink" placeholder="Enter PDF link">
+            </div>
+
+            <button type="submit" id="submitArticleBtn">Publish Article</button>
+        </form>
+    </div>
+
+    <!-- Include the addToBlog.js script -->
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
