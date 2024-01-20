@@ -16,6 +16,96 @@
             padding: 0;
         }
 
+        /* Responsive Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007bff;
+            padding: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            padding: 14px 16px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #f8f9fa;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #007bff;
+            }
+
+            .navbar-links.show {
+                padding-top: 20px;
+                display: block;
+            }
+
+            .navbar a {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+
         .article-container {
             max-width: 600px;
             margin: 50px auto;
@@ -56,6 +146,21 @@
 </head>
 
 <body>
+    <!-- Nav Bar -->
+    <nav class="navbar">
+
+        <div class="menu-icon" onclick="toggleNavbar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="navbar-links" id="navbarLinks">
+            <a href="index.html"> Blog Data </a>
+            <a href="addToRecommendation.html"> Recommendation Data</a>
+            <a href="#"> Learning Data</a>
+        </div>
+    </nav>
+
     <div class="article-container">
         <h2>Create New Article</h2>
 
@@ -80,6 +185,12 @@
     </div>
 
     <!-- Include the addToBlog.js script -->
+    <script>
+        function toggleNavbar() {
+            var navbarLinks = document.getElementById('navbarLinks');
+            navbarLinks.classList.toggle('show');
+        }
+    </script>
     <script type="module" src="script.js"></script>
 </body>
 
