@@ -43,7 +43,7 @@ async function addDataToFirestoreAndElements(data) {
             timestamp: serverTimestamp()
         });
 
-        console.log("Data added with ID: ", docRef.id);
+        alert("Data added with ID: ", docRef.id);
 
         // Update elements with the added data
         updateElementsWithData(data.companyTitle, data.reason);
@@ -77,6 +77,70 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    // Event listener for market status button
+    const addDataBtnStatus = document.getElementById('addDataBtnStatus');
+    addDataBtnStatus.addEventListener('click', function () {
+        const linkImgStatus = document.getElementById('linkImgStatus').value;
+        const indexStatus = document.getElementById('index').value;
+        const marketStatus = document.getElementById('marketStauts').value;
+
+        if (linkImgStatus && indexStatus && marketStatus) {
+            const dataStatus = {
+                linkImg: linkImgStatus,
+                index: indexStatus,
+                marketStatus: marketStatus,
+                timestamp: serverTimestamp(),
+            };
+
+            addDataToFirestore(dataStatus, 'marketStatus'); // Specify collection name
+        } else {
+            alert('Please fill in all fields for market status.');
+        }
+    });
+
+    // Event listener for explanation button
+    const addDataBtnExplanation = document.getElementById('addDataBtnExplanation');
+    addDataBtnExplanation.addEventListener('click', function () {
+        const linkImgExplanation = document.getElementById('linkImgExplanation').value;
+        const example = document.getElementById('example').value;
+        const explanation = document.getElementById('explanation').value;
+
+        if (linkImgExplanation && example && explanation) {
+            const dataExplanation = {
+                linkImg: linkImgExplanation,
+                example: example,
+                explanation: explanation,
+                timestamp: serverTimestamp(),
+            };
+
+            addDataToFirestore(dataExplanation, 'explanation'); // Specify collection name
+        } else {
+            alert('Please fill in all fields for explanation.');
+        }
+    });
+
+    // Function to add data to Firestore
+    async function addDataToFirestore(data, collectionName) {
+        try {
+            // Add data to Firestore
+            const docRef = await addDoc(collection(db, collectionName), data);
+
+            alert('Data added with ID: ' + docRef.id);
+
+            // You can add additional logic or UI updates here
+        } catch (error) {
+            console.error('Error adding data: ', error);
+        }
+    }
+});
+
+
+
 
 // Get the form and add a submit event listener
 const recommendationForm = document.getElementById('recommendationForm');
