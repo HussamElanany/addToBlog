@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Entry - Stockdash</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="content-entry.css">
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar">
+        <a class="logo" href="index.html">Stockdash</a>
+        <div class="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="navbar-links">
+
+            <a href="index.html">المدونة/الأخبار</a>
+            <a href="addToRecommendation.html"> التوصيات </a>
+            <a href="recomendationContetn.html">شرح التوصيات</a>
+            <a href=""></a>
+            <a href="#" class="exit-menu"> ↑ </a>
+        </div>
+    </nav>
+
+
+
+    <!-- Your content entry form -->
+    <div class="container">
+        <form id="content-form">
+            <div class="form-group">
+                <label for="title" class="label">Title:</label>
+                <input type="text" id="title" class="input" placeholder="Enter the title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content" class="label">Content:</label>
+                <textarea id="content" class="textarea" placeholder="Enter the content" required></textarea>
+            </div>
+
+            <button type="button" id="submit-button" class="button">Submit Content</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
+
+    <script src="navbar.js"></script>
+    <script type="module" defer src="content-entry.js"></script>
+</body>
+
+
+</html>
